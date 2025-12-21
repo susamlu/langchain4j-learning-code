@@ -1,4 +1,4 @@
-package io.github.susamlu.langchain4j;
+package io.github.susamlu.langchain4j.hello;
 
 import dev.langchain4j.model.openai.OpenAiChatModel;
 

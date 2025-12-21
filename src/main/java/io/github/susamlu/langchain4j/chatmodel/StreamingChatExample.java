@@ -1,4 +1,4 @@
-package io.github.susamlu.langchain4j;
+package io.github.susamlu.langchain4j.chatmodel;
 
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.SystemMessage;

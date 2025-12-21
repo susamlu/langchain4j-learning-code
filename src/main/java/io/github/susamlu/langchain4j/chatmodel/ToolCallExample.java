@@ -1,4 +1,4 @@
-package io.github.susamlu.langchain4j;
+package io.github.susamlu.langchain4j.chatmodel;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
