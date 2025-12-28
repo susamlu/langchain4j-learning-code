@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE 示例</title>
+</head>
+<body>
+<div class="container">
+    <h1>SSE 示例</h1>
+
+    <div class="input-section">
+        <input type="text" id="messageInput" placeholder="输入您的消息..." value="给我讲个笑话">
+        <button id="sendBtn">发送</button>
+        <button id="stopBtn" disabled>停止</button>
+    </div>
+
+    <div id="status" class="status" style="display: none;"></div>
+
+    <div class="response-section">
+        <h2>响应内容:</h2>
+        <div id="response"></div>
+    </div>
+</div>
+
+<script>
+    let eventSource = null;
+    const messageInput = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const responseDiv = document.getElementById('response');
+    const statusDiv = document.getElementById('status');
+
+    function updateStatus(message) {
+        statusDiv.textContent = message;
+        statusDiv.style.display = 'block';
+    }
+
+    function connectToSSE(message) {
+        // 清空之前的响应
+        responseDiv.textContent = '';
+
+        // 关闭之前的连接（如果存在）
+        if (eventSource) {
+            eventSource.close();
+        }
+
+        // 更新 UI 状态
+        sendBtn.disabled = true;
+        stopBtn.disabled = false;
+        updateStatus('正在连接...');
+
+        // 创建新的 EventSource 连接
+        eventSource = new EventSource(`http://localhost:8080/api/chat/stream?message=${encodeURIComponent(message)}`);
+
+        eventSource.addEventListener('message', (event) => {
+            // 实时追加增量 token
+            responseDiv.textContent += event.data;
+            updateStatus('连接中...');
+        });
+
+        eventSource.addEventListener('complete', (event) => {
+            // 响应完成
+            console.log('完整响应:', event.data);
+            eventSource.close();
+            eventSource = null;
+
+            // 更新 UI 状态
+            sendBtn.disabled = false;
+            stopBtn.disabled = true;
+            updateStatus('响应完成');
+        });
+
+        eventSource.onerror = (error) => {
+            console.error('SSE 错误:', error);
+            eventSource.close();
+            eventSource = null;
+
+            // 更新 UI 状态
+            sendBtn.disabled = false;
+            stopBtn.disabled = true;
+            updateStatus('连接错误');
+        };
+    }
+
+    // 发送按钮事件
+    sendBtn.addEventListener('click', () => {
+        const message = messageInput.value.trim();
+        if (message) {
+            connectToSSE(message);
+        } else {
+            alert('请输入消息内容');
+        }
+    });
+
+    // 停止按钮事件
+    stopBtn.addEventListener('click', () => {
+        if (eventSource) {
+            eventSource.close();
+            eventSource = null;
+
+            // 更新 UI 状态
+            sendBtn.disabled = false;
+            stopBtn.disabled = true;
+            updateStatus('连接已停止');
+        }
+    });
+
+    // 支持回车键发送
+    messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendBtn.click();
+        }
+    });
+</script>
+</body>
+</html>
