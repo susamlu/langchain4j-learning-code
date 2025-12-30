@@ -29,11 +29,15 @@ public class StreamingChatController {
     @CrossOrigin(origins = "*") // 调试临时配置，生产环境需限定具体跨域域名，禁止通配符
     @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public SseEmitter streamChat(@RequestParam(name = "message") String message) {
+        System.out.println("\n--- 流式响应开始 ---");
+
         SseEmitter emitter = new SseEmitter(60000L); // 60秒超时
 
         model.chat(message, new StreamingChatResponseHandler() {
             @Override
             public void onPartialResponse(String partialResponse) {
+                System.out.print(partialResponse);
+
                 try {
                     // 发送增量 token 到前端
                     emitter.send(SseEmitter.event()
@@ -47,6 +51,8 @@ public class StreamingChatController {
 
             @Override
             public void onCompleteResponse(ChatResponse completeResponse) {
+                System.out.println("\n--- 流式响应完成 ---");
+
                 try {
                     // 发送完成事件
                     emitter.send(SseEmitter.event()
