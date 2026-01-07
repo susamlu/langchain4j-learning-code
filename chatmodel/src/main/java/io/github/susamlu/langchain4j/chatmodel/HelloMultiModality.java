@@ -18,7 +18,7 @@ public class HelloMultiModality {
                 .build();
 
         UserMessage userMessage = UserMessage.from(
-                TextContent.from("详细描述以下图像"),
+                TextContent.from("详细描述这张图片"),
                 ImageContent.from("https://picsum.photos/id/0/200")
         );
         ChatResponse response = model.chat(userMessage);
