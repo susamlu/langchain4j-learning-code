@@ -19,6 +19,7 @@
         <module>chatmodel</module>
         <module>chatmemory</module>
         <module>responsestreaming</module>
+        <module>aiservice</module>
     </modules>
 
     <properties>
