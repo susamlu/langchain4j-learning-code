@@ -27,7 +27,7 @@ public class StreamingChatExample {
 
         // 2. 构造对话消息（可替换为业务场景的消息）
         List<ChatMessage> messages = List.of(
-                SystemMessage.from("你是专业的Java技术助手，回答简洁、准确，分点说明。"),
+                SystemMessage.from("你是专业的 Java 技术助手，回答简洁、准确，分点说明。"),
                 UserMessage.from("请详细说明 LangChain4j 流式对话的核心优势和使用注意事项")
         );
 
