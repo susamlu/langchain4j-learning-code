@@ -41,6 +41,8 @@ public class ResultExample {
                 .baseUrl("https://api.deepseek.com/v1")
                 .apiKey(System.getenv("DEEPSEEK_API_KEY"))
                 .modelName("deepseek-chat")
+                .logRequests(true)
+                .logResponses(true)
                 .build();
 
         // ====================== 2. 使用 AiServices 创建 Assistant 实例 ======================

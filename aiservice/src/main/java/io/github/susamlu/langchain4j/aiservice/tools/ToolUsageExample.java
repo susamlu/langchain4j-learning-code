@@ -41,6 +41,8 @@ public class ToolUsageExample {
                 .baseUrl("https://api.deepseek.com/v1")
                 .apiKey(System.getenv("DEEPSEEK_API_KEY"))
                 .modelName("deepseek-chat")
+                .logRequests(true)
+                .logResponses(true)
                 .build();
 
         // 创建工具实例

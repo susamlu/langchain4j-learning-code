@@ -106,6 +106,8 @@ public class DeepseekModerationModel implements ModerationModel {
                 .baseUrl("https://api.deepseek.com/v1")
                 .apiKey(System.getenv("DEEPSEEK_API_KEY"))
                 .modelName("deepseek-chat")
+                .logRequests(true)
+                .logResponses(true)
                 .build();
 
         ContentModerationService contentModerationService = AiServices.create(

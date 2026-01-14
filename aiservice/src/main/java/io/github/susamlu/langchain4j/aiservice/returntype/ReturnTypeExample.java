@@ -105,6 +105,8 @@ public class ReturnTypeExample {
                 .baseUrl("https://api.deepseek.com/v1")
                 .apiKey(System.getenv("DEEPSEEK_API_KEY"))
                 .modelName("deepseek-chat")
+                .logRequests(true)
+                .logResponses(true)
                 .build();
 
         // ====================== 2. boolean 返回类型示例 ======================

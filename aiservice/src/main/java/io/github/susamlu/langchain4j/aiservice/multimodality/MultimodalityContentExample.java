@@ -60,6 +60,8 @@ public class MultimodalityContentExample {
                 .baseUrl("https://dashscope.aliyuncs.com/compatible-mode/v1")
                 .apiKey(System.getenv("QWEN_API_KEY"))
                 .modelName("qwen-vl-plus")
+                .logRequests(true)
+                .logResponses(true)
                 .build();
 
         // ====================== 2. 图像分析示例（使用 base64 方式） ======================

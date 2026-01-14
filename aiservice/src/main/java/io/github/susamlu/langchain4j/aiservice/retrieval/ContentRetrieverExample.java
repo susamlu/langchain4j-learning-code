@@ -32,6 +32,8 @@ public class ContentRetrieverExample {
                 .baseUrl("https://api.deepseek.com/v1")
                 .apiKey(System.getenv("DEEPSEEK_API_KEY"))
                 .modelName("deepseek-chat")
+                .logRequests(true)
+                .logResponses(true)
                 .build();
 
         // 创建嵌入模型
@@ -39,6 +41,8 @@ public class ContentRetrieverExample {
                 .baseUrl("https://dashscope.aliyuncs.com/compatible-mode/v1")
                 .apiKey(System.getenv("QWEN_API_KEY"))
                 .modelName("text-embedding-v2")
+                .logRequests(true)
+                .logResponses(true)
                 .build();
 
         // 创建嵌入存储
