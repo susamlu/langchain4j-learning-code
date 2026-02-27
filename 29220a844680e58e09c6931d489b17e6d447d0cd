@@ -1,0 +1,60 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "29220a844680e58e09c6931d489b17e6d447d0cd",
+  "prompts": {
+    "01eedeb713697d75": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "426fbfba-545e-4c46-aea6-95366884e7a4",
+        "model": "composer-1.5"
+      },
+      "human_author": "Sam Lu <luxiaocong524@163.com>",
+      "messages": [],
+      "total_additions": 586,
+      "total_deletions": 75,
+      "accepted_lines": 510,
+      "overriden_lines": 1
+    },
+    "9307b0b339f0df78": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2cede771-a580-4eb8-a116-814507fb7255",
+        "model": "composer-1.5"
+      },
+      "human_author": "Sam Lu <luxiaocong524@163.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "ade87ca130447115": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6d0cdf6c-4669-4272-9545-b9d99d3c6d62",
+        "model": "composer-1.5"
+      },
+      "human_author": "Sam Lu <luxiaocong524@163.com>",
+      "messages": [],
+      "total_additions": 201,
+      "total_deletions": 5,
+      "accepted_lines": 195,
+      "overriden_lines": 0
+    },
+    "bc6d3ce835e3ae6f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "86b40b4d-da45-4754-bc59-a8ede4bb787f",
+        "model": "composer-1.5"
+      },
+      "human_author": "Sam Lu <luxiaocong524@163.com>",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 4,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
