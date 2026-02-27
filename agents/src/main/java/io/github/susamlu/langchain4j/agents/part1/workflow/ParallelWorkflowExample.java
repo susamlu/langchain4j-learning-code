@@ -1,4 +1,4 @@
-package io.github.susamlu.langchain4j.agents.workflow;
+package io.github.susamlu.langchain4j.agents.part1.workflow;
 
 import dev.langchain4j.agentic.Agent;
 import dev.langchain4j.agentic.AgenticServices;

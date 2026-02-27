@@ -1,4 +1,4 @@
-package io.github.susamlu.langchain4j.agents;
+package io.github.susamlu.langchain4j.agents.part1;
 
 import dev.langchain4j.agentic.Agent;
 import dev.langchain4j.agentic.AgenticServices;

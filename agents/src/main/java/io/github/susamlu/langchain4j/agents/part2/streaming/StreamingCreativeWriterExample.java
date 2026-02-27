@@ -1,4 +1,4 @@
-package io.github.susamlu.langchain4j.agents.streaming;
+package io.github.susamlu.langchain4j.agents.part2.streaming;
 
 import dev.langchain4j.agentic.Agent;
 import dev.langchain4j.agentic.AgenticServices;
