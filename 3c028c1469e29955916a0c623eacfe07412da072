@@ -1,0 +1,23 @@
+agents/src/main/java/io/github/susamlu/langchain4j/agents/part3/typed/TypedKeyExample.java
+  01eedeb713697d75 73-81,114-115,120-121
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.8",
+  "base_commit_sha": "3c028c1469e29955916a0c623eacfe07412da072",
+  "prompts": {
+    "01eedeb713697d75": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "426fbfba-545e-4c46-aea6-95366884e7a4",
+        "model": "composer-1.5"
+      },
+      "human_author": "Sam Lu <luxiaocong524@163.com>",
+      "messages": [],
+      "total_additions": 17,
+      "total_deletions": 9,
+      "accepted_lines": 14,
+      "overriden_lines": 0
+    }
+  }
+}
