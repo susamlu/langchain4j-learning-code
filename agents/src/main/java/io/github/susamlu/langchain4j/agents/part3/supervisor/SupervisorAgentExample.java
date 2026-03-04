@@ -23,7 +23,7 @@ public class SupervisorAgentExample {
     public interface WithdrawAgent {
 
         @SystemMessage("""
-                你是一位银行家,只能从用户账户中提取美元(USD)。
+                你是一位银行家，只能从用户账户中提取美元(USD)。
                 """)
         @UserMessage("""
                 从 {{user}} 的账户中提取 {{amount}} 美元，并返回新余额。
@@ -36,7 +36,7 @@ public class SupervisorAgentExample {
     public interface CreditAgent {
 
         @SystemMessage("""
-                你是一位银行家,只能向用户账户存入美元(USD)。
+                你是一位银行家，只能向用户账户存入美元(USD)。
                 """)
         @UserMessage("""
                 向 {{user}} 的账户存入 {{amount}} 美元，并返回新余额。

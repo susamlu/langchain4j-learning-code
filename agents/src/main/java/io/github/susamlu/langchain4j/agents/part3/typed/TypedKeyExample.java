@@ -9,8 +9,6 @@ import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.UserMessage;
 
-import java.util.Map;
-
 /**
  * 强类型输入输出示例：演示如何使用 TypedKey 实现类型安全的数据传递
  * <p>
@@ -24,7 +22,7 @@ public class TypedKeyExample {
     public enum RequestCategory {
         LEGAL,      // 法律
         MEDICAL,    // 医疗
-        TECHNICAL, // 技术
+        TECHNICAL,  // 技术
         UNKNOWN     // 未知
     }
 
@@ -72,6 +70,16 @@ public class TypedKeyExample {
     }
 
     /**
+     * 专家聊天机器人接口：类型化顺序工作流的根接口
+     */
+    public interface ExpertChatbot {
+
+        @Agent
+        String ask(@K(UserRequest.class) String request);
+
+    }
+
+    /**
      * 创建基础对话模型
      *
      * @return ChatModel 实例
@@ -103,14 +111,14 @@ public class TypedKeyExample {
                 .subAgents(scope -> scope.readState(Category.class) == RequestCategory.MEDICAL, medicalExpert)
                 .build();
 
-        // 使用强类型键创建顺序工作流
-        UntypedAgent expertChatbot = AgenticServices.sequenceBuilder()
+        // 使用强类型键创建顺序工作流（类型化接口）
+        ExpertChatbot expertChatbot = AgenticServices.sequenceBuilder(ExpertChatbot.class)
                 .subAgents(routerAgent, expertsAgent)
                 .outputKey(ExpertResponse.class)
                 .build();
 
-        // 调用时使用强类型键
-        String response = (String) expertChatbot.invoke(Map.of("UserRequest", "我摔断了腿，应该怎么办？"));
+        // 调用时使用类型化方法
+        String response = expertChatbot.ask("我摔断了腿，应该怎么办？");
         System.out.println("回答：" + response);
     }
 
